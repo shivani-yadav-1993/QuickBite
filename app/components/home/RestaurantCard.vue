@@ -1,79 +1,150 @@
 <script setup lang="ts">
-import BaseBadge from '../ui/BaseBadge.vue'
-import BaseCard from '../ui/BaseCard.vue'
+import { Icon } from '@iconify/vue'
 
 interface Props {
-  image: string
   name: string
+  image: string
   cuisine: string
   rating: number
   deliveryTime: string
+  priceForTwo: string
+  isVeg?: boolean
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-  <BaseCard hover>
+  <article class="card">
+    <div class="image-wrapper">
+      <img
+        :src="image"
+        :alt="name"
+        class="image"
+      >
 
-    <img
-      :src="image"
-      :alt="name"
-      class="restaurant-image"
-    />
+      <span
+        v-if="isVeg"
+        class="veg"
+      >
+        VEG
+      </span>
 
-    <div class="restaurant-content">
+      <button class="wishlist">
+        <Icon
+          icon="mdi:heart-outline"
+          width="20"
+        />
+      </button>
+    </div>
 
-      <div class="restaurant-header">
-
+    <div class="content">
+      <div class="title-row">
         <h3>{{ name }}</h3>
 
-        <BaseBadge variant="success">
-          ⭐ {{ rating }}
-        </BaseBadge>
-
+        <span class="rating">
+          <Icon
+            icon="mdi:star"
+            width="14"
+          />
+          {{ rating }}
+        </span>
       </div>
 
-      <p>
+      <p class="cuisine">
         {{ cuisine }}
       </p>
 
-      <small>
-        {{ deliveryTime }}
-      </small>
+      <div class="meta">
+        <span>{{ deliveryTime }}</span>
 
+        <span>•</span>
+
+        <span>{{ priceForTwo }}</span>
+      </div>
     </div>
-
-  </BaseCard>
+  </article>
 </template>
 
 <style scoped>
-.restaurant-image {
-  width: 100%;
+.card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  transition: .35s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.image-wrapper {
+  position: relative;
   height: 220px;
+}
 
+.image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  border-radius: 10px;
 }
 
-.restaurant-content {
-  margin-top: 16px;
+.wishlist {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  cursor: pointer;
 }
 
-.restaurant-header {
+.veg {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: #22c55e;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.content {
+  padding: 20px;
+}
+
+.title-row {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
-  margin-bottom: 8px;
 }
 
-.restaurant-content p {
-  color: var(--text-secondary);
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #22c55e;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
 
-  margin-bottom: 8px;
+.cuisine {
+  color: #666;
+  margin: 10px 0;
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  color: #888;
+  font-size: 14px;
 }
 </style>

@@ -1,60 +1,64 @@
 <script setup lang="ts">
-interface Category {
-  id: number
-  name: string
-}
+import { ref } from 'vue'
+import { Icon } from '@iconify/vue'
 
-const categories: Category[] = [
-  { id: 1, name: 'Pizza' },
-  { id: 2, name: 'Burger' },
-  { id: 3, name: 'Chinese' },
-  { id: 4, name: 'Biryani' },
-  { id: 5, name: 'Desserts' },
-  { id: 6, name: 'South Indian' },
-  { id: 7, name: 'North Indian' }
-]
+const selectedCategory = ref('Pizza')
+
+import { categories } from '../../../constants/categories'
 </script>
 
 <template>
-  <section class="category-slider">
+  <section class="categories">
+    <button v-for="category in categories" :key="category.name" :class="{ active: selectedCategory === category.name }"
+      @click="selectedCategory = category.name">
+      <Icon :icon="category.icon" width="26" />
 
-    <button
-      v-for="category in categories"
-      :key="category.id"
-      class="category-chip"
-    >
-      {{ category.name }}
+      <span>{{ category.name }}</span>
     </button>
-
   </section>
 </template>
 
 <style scoped>
-.category-slider {
+.categories {
+  max-width: 1440px;
+  margin: 50px auto;
+  padding: 0 32px;
   display: flex;
-  gap: 16px;
-
+  gap: 18px;
   overflow-x: auto;
-
-  padding: 24px 0;
+  scrollbar-width: none;
 }
 
-.category-chip {
-  white-space: nowrap;
+.categories::-webkit-scrollbar {
+  display: none;
+}
 
-  padding: 12px 20px;
-
-  border-radius: 999px;
-
+button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   border: none;
-
-  background: #f5f5f5;
-
-  transition: var(--transition-fast);
+  border-radius: 18px;
+  padding: 14px 22px;
+  background: white;
+  cursor: pointer;
+  transition: .3s;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
 }
 
-.category-chip:hover {
-  background: var(--primary);
+button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, .08);
+}
+
+button.active {
+  background: #fc8019;
   color: white;
+}
+
+span {
+  font-weight: 600;
+  white-space: nowrap;
 }
 </style>

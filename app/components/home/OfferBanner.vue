@@ -1,64 +1,97 @@
 <script setup lang="ts">
-import BaseButton from '../ui/BaseButton.vue'
+import OfferCarousel from './OfferCarousel.vue'
 </script>
 
 <template>
-  <section class="offer-banner">
+  <section class="offers-section">
+    <div class="section-header">
+      <div>
+        <span class="tag">
+          🔥 Deals
+        </span>
 
-    <div>
+        <h2>
+          Top Offers Near You
+        </h2>
 
-      <h2>
-        Flat 50% OFF
-      </h2>
+        <p>
+          Discover exclusive discounts from your favourite restaurants.
+        </p>
+      </div>
 
-      <p>
-        On your first order. Limited time offer.
-      </p>
-
+      <NuxtLink to="/offers" class="view-all">
+        View All
+      </NuxtLink>
     </div>
 
-    <BaseButton
-      label="Grab Offer"
-      size="lg"
-    />
-
+    <OfferCarousel />
   </section>
 </template>
 
 <style scoped>
-.offer-banner {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding: 40px;
-
-  border-radius: var(--border-radius-lg);
-
-  background: linear-gradient(
-    90deg,
-    var(--primary),
-    #ffb347
-  );
-
-  color: white;
-
-  margin: 48px 0;
+.offers-section {
+  max-width: 1440px;
+  margin: 72px auto;
+  padding: 0 32px;
 }
 
-.offer-banner h2 {
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(252, 128, 25, .1);
+  color: #fc8019;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #222;
   margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-  .offer-banner {
-    flex-direction: column;
+.section-header p {
+  color: #666;
+  max-width: 520px;
+}
 
-    gap: 20px;
+.view-all {
+  color: #fc8019;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .25s;
+}
 
-    text-align: center;
+.view-all:hover {
+  color: #e56f11;
+}
+
+@media (max-width:768px) {
+
+  .offers-section {
+    padding: 0 18px;
+    margin: 56px auto;
   }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .section-header h2 {
+    font-size: 30px;
+  }
+
 }
 </style>

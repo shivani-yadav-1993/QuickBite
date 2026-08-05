@@ -1,75 +1,54 @@
-# Nuxt Minimal Starter
+# QuickBite
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+QuickBite is a modern food delivery and restaurant discovery app built with Nuxt 3. It includes restaurant browsing, auth flows, cart and order flows, and a polished storefront experience inspired by food marketplace UIs.
+
+## Project Overview
+
+- Restaurant discovery and listing experience
+- Authentication screens for login and signup
+- Cart, order, and checkout-ready structure
+- Pinia state management for app and user data
+- Reusable UI components and auth-focused presentation blocks
+- API layer organized with separate service modules
+
+## Tech Stack
+
+- Nuxt 3
+- Vue 3
+- TypeScript
+- Pinia
+- Tailwind CSS
+- Axios
+- tsParticles for animated background effects
 
 ## Setup
 
-Make sure to install dependencies:
+Install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the app locally on http://localhost:3000:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## Production Build
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Preview the production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Notes
+
+This project is currently structured as a front-end food commerce application with reusable service and store layers, designed for future integration with a live backend or API provider.

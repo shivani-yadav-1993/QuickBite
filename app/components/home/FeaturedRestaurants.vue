@@ -1,25 +1,9 @@
 <script setup lang="ts">
 import RestaurantGrid from './RestaurantGrid.vue'
-
-interface Restaurant {
-  id: number
-  image: string
-  name: string
-  cuisine: string
-  rating: number
-  deliveryTime: string
-}
-
-interface Props {
-  restaurants: Restaurant[]
-}
-
-defineProps<Props>()
 </script>
 
 <template>
   <section class="featured-restaurants">
-
     <div class="section-header">
       <h2>Featured Restaurants</h2>
 
@@ -28,10 +12,7 @@ defineProps<Props>()
       </NuxtLink>
     </div>
 
-    <RestaurantGrid
-      :restaurants="restaurants"
-    />
-
+    <RestaurantGrid />
   </section>
 </template>
 
@@ -41,18 +22,20 @@ defineProps<Props>()
 }
 
 .section-header {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 32px;
+
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   margin-bottom: 24px;
 }
 
 .section-header a {
-  color: var(--primary);
-
+  color: #fc8019;
   font-weight: 600;
+  text-decoration: none;
 }
 </style>
