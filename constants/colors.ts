@@ -1,0 +1,10 @@
+export const COLORS = {
+  PRIMARY: '#FC8019',
+  SECONDARY: '#60B246',
+  SUCCESS: '#16A34A',
+  ERROR: '#DC2626',
+  WARNING: '#F59E0B',
+  WHITE: '#FFFFFF',
+  BLACK: '#111827',
+  GRAY: '#6B7280'
+}

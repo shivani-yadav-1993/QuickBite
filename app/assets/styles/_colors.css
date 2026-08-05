@@ -1,0 +1,18 @@
+:root {
+  --primary: #fc8019;
+  --primary-hover: #e46f0f;
+
+  --secondary: #282c3f;
+
+  --success: #60b246;
+  --warning: #db7c38;
+  --danger: #ff4d4f;
+
+  --background-color: #ffffff;
+  --surface-color: #f8f8f8;
+
+  --text-primary: #282c3f;
+  --text-secondary: #686b78;
+
+  --border-color: #e9e9eb;
+}
