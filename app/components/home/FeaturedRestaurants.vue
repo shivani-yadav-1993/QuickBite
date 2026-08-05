@@ -5,7 +5,7 @@ import RestaurantGrid from './RestaurantGrid.vue'
 <template>
   <section class="featured-restaurants">
     <div class="section-header">
-      <h2>Featured Restaurants</h2>
+      <h2>Featured=Restaurants</h2>
 
       <NuxtLink to="/restaurants">
         View All
